@@ -1,0 +1,34 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Scanner;
+
+public class MachinsFormula {
+
+	public static void main(String[] args) {
+		int iterations = 10000;
+		Scanner reader = new Scanner(System.in);
+		
+		BigDecimal first = arctan((double) 1 / 5, iterations).multiply(new BigDecimal(16));
+		BigDecimal second = arctan((double) 1 / 239, iterations).multiply(new BigDecimal(4));
+		BigDecimal pi = first.subtract(second);
+		
+		System.out.print("Calculate pi to nth decimals(1-500): ");
+		int n = Integer.parseInt(reader.nextLine());
+		System.out.println(pi);
+	}
+
+	private static BigDecimal arctan(double value, int iterations) { // value must be in the range (-1,1)
+		int n = iterations;
+		BigDecimal estimate = new BigDecimal(value);
+		estimate.setScale(1000);
+		for (int i = 1; i <= n; i++) {
+			if (i % 2 == 1) {
+				estimate = estimate.subtract(new BigDecimal(Math.pow(value, 2 * i + 1) / (2 * i + 1)));
+			} else {
+				estimate = estimate.add(new BigDecimal(Math.pow(value, 2 * i + 1) / (2 * i + 1)));
+			}
+		}
+		return estimate;
+	}
+
+}

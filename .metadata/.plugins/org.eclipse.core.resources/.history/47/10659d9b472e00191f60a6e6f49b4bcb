@@ -1,0 +1,25 @@
+import java.math.BigDecimal;
+
+public class MachinsFormula {
+
+	public static void main(String[] args) {
+		int iterations = 10000000;
+		//arctan((double) 1 / 5, iterations) - arctan((double) 1 / 239, iterations)
+		BigDecimal pi = arctan((double) 1 / 5, iterations).subtract(arctan((double) 1 / 239, iterations)).multiply(new BigDecimal(4));
+		System.out.println(pi);
+	}
+
+	private static BigDecimal arctan(double value, int iterations) { // value must be in the range (-1,1)
+		int n = iterations;
+		BigDecimal estimate = new BigDecimal(value);
+		for (int i = 1; i <= n; i++) {
+			if (i % 2 == 1) {
+				estimate.subtract(new BigDecimal(Math.pow(value, 2 * i + 1) / (2 * i + 1)));
+			} else {
+				estimate.add(new BigDecimal(Math.pow(value, 2 * i + 1) / (2 * i + 1)));
+			}
+		}
+		return estimate;
+	}
+
+}
