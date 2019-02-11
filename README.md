@@ -6,6 +6,6 @@
 
 ### Explanation
 #### Substitution Cipher
-```Replaced the characters in a sentence by using a key, and can also be decryted using the same key.```
+```Replace characters in a sentence by using a key, and can also be decryted using the same key.```
 #### Pi to Nth Digit
 ```Gregory's Series is the slower method of calculating Pi and the Machin's Formula is the faster version.```
