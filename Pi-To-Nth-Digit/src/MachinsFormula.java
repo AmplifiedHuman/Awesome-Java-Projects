@@ -8,7 +8,7 @@ public class MachinsFormula {
 	public static final RoundingMode roundingMode = RoundingMode.HALF_EVEN;
 	public static void main(String[] args) throws IOException {
 		Scanner reader = new Scanner(System.in);
-		System.out.print("Calculate pi to nth decimals(1-500): ");
+		System.out.print("Calculate pi to nth decimals: ");
 		int n = Integer.parseInt(reader.nextLine());
 		long time1 = System.currentTimeMillis();
 		
